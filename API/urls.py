@@ -23,8 +23,12 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('inbound/sms/', InBoundSms.as_view(), name='inbound-sms'),
     path('outbound/sms/', OutBoundSms.as_view(), name='outbound-sms'),
-    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path(
+        "apiDocs/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ] 
 
 
