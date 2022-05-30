@@ -31,7 +31,7 @@ class InBoundSerializer(serializers.Serializer):
         elif not phone_query.exists():
             raise serializers.ValidationError({"message": "{} not found".format(data.get("to"))}) 
         elif data.get("from_") == data.get("to"):
-            raise serializers.ValidationError({"message": "from {valid_from}: and to:{valid_to} parameter cannot be the same"}) 
+            raise serializers.ValidationError({"message": f"from {valid_from}: and to:{valid_to} parameter cannot be the same"}) 
         return data
 
 
