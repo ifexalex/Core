@@ -25,13 +25,13 @@ class InBoundSerializer(serializers.Serializer):
         valid_from = re.sub("[^0-9]", "", data.get("from_"))
 
         if data.get("to") not in  valid_to:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("to"))})
+            raise serializers.ValidationError({"message":" {} is invalid".format(data.get("to"))})
         elif data.get("from_") not in  valid_from:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("from_"))})
+            raise serializers.ValidationError({"message":" {} is invalid".format(data.get("from_"))})
         elif not phone_query.exists():
-            raise serializers.ValidationError({"message": "<{}> not found".format(data.get("to"))}) 
+            raise serializers.ValidationError({"message": "{} not found".format(data.get("to"))}) 
         elif data.get("from_") == data.get("to"):
-            raise serializers.ValidationError({"message": "from <{valid_from}>: and to:<{valid_to}> parameter cannot be the same"}) 
+            raise serializers.ValidationError({"message": "from {valid_from}: and to:{valid_to} parameter cannot be the same"}) 
         return data
 
 
@@ -53,11 +53,11 @@ class OutBoundSerializer(InBoundSerializer):
         valid_from = re.sub("[^0-9]", "", data.get("from_"))
 
         if data.get("to") not in  valid_to:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("to"))})
+            raise serializers.ValidationError({"message":" {} is invalid".format(data.get("to"))})
         elif data.get("from_") not in  valid_from:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("from_"))})
+            raise serializers.ValidationError({"message":" {} is invalid".format(data.get("from_"))})
         elif not phone_query.exists():
-            raise serializers.ValidationError({"message": "<{}> not found".format(data.get("from_"))})
+            raise serializers.ValidationError({"message": "{} not found".format(data.get("from_"))})
         elif data.get("from_") == data.get("to"):
-            raise serializers.ValidationError({"message": "from <{valid_from}>: and to:<{valid_to}> parameter cannot be the same"}) 
+            raise serializers.ValidationError({"message": "from {valid_from}: and to:{valid_to} parameter cannot be the same"}) 
         return data
