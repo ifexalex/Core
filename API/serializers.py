@@ -25,9 +25,9 @@ class InBoundSerializer(serializers.Serializer):
         valid_from = re.sub("[^0-9]", "", data.get("from_"))
 
         if data.get("to") not in  valid_to:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(valid_to)})
+            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("to"))})
         elif data.get("from_") not in  valid_from:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(valid_from)})
+            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("from_"))})
         elif not phone_query.exists():
             raise serializers.ValidationError({"message": "<{}> not found".format(data.get("to"))}) 
         elif data.get("from_") == data.get("to"):
@@ -38,6 +38,9 @@ class InBoundSerializer(serializers.Serializer):
         
 
 class OutBoundSerializer(InBoundSerializer):
+    """
+    Serializer for Sms parameters
+    """
     
     def validate(self, data):
 
@@ -50,9 +53,9 @@ class OutBoundSerializer(InBoundSerializer):
         valid_from = re.sub("[^0-9]", "", data.get("from_"))
 
         if data.get("to") not in  valid_to:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(valid_to)})
+            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("to"))})
         elif data.get("from_") not in  valid_from:
-            raise serializers.ValidationError({"message":" <{}> is invalid".format(valid_from)})
+            raise serializers.ValidationError({"message":" <{}> is invalid".format(data.get("from_"))})
         elif not phone_query.exists():
             raise serializers.ValidationError({"message": "<{}> not found".format(data.get("from_"))})
         elif data.get("from_") == data.get("to"):
