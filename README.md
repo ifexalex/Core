@@ -23,4 +23,4 @@
 
 
 ## Important information
-    - `from` parameter was changed to "from_" : this is because 'from' is a special reserved word in python
+    - `from`:  parameter was changed to `from_`: this is because 'from' is a special reserved word in python
