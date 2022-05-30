@@ -167,7 +167,7 @@ REST_FRAMEWORK = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://:paad1f8a0bcac15f9dd6be2bccbf83ec844acaa2b2dccb84c3507b1c7a8abe5c5@ec2-3-211-225-70.compute-1.amazonaws.com:31330",
+        "LOCATION": config("REDIS_URL"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
