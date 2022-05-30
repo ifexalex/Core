@@ -54,6 +54,7 @@ class InBoundSms(APIView):
             {"status": True, "message": "inbound sms ok"},
             status=status.HTTP_200_OK,
         )
+        
 
 
 class OutBoundSms(APIView):
