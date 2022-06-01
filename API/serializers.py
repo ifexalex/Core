@@ -1,7 +1,8 @@
-from rest_framework import serializers
+import re
+
 from django.core.validators import MinLengthValidator
 from phone.models import PhoneNumber
-import re
+from rest_framework import serializers
 
 
 class InBoundSerializer(serializers.Serializer):

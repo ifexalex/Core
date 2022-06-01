@@ -1,4 +1,5 @@
-from rest_framework.throttling import UserRateThrottle,ScopedRateThrottle
+from rest_framework.throttling import ScopedRateThrottle, UserRateThrottle
+
 
 class CustomThrottle(ScopedRateThrottle):
 
